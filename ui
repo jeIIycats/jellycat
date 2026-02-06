@@ -2,7 +2,6 @@ local HttpService = game:GetService('HttpService')
 
 return {
     Start = function(self, tasks, titleText)
-        -- Removed the "Mobile is not supported" kick
         local loader = self.new(titleText)
         
         for i, taskData in ipairs(tasks) do
