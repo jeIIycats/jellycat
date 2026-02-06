@@ -1,0 +1,114 @@
+game:GetService('HttpService')
+
+return {
+    Start = function(...)
+        local _ = game:GetService('UserInputService').TouchEnabled
+
+        game:GetService('Players').LocalPlayer:Kick('Mobile is not supported')
+
+        return false
+    end,
+    new = function(...)
+        local _14_vararg1 = ...
+        local _call16 = Instance.new('ScreenGui')
+
+        _call16.Name = 'LoadingUI'
+        _call16.Parent = game:GetService('CoreGui')
+        _call16.Enabled = true
+
+        local _call20 = Instance.new('Frame')
+
+        _call20.Name = 'MainFrame'
+        _call20.Size = UDim2.new(0, 300, 0, 100)
+        _call20.Position = UDim2.new(0.5, -150, 0.5, -50)
+        _call20.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        _call20.BorderSizePixel = 0
+        _call20.Parent = _call16
+
+        local _call28 = Instance.new('UIStroke')
+
+        _call28.Parent = _call20
+        _call28.Color = Color3.fromRGB(40, 40, 40)
+        _call28.Thickness = 1
+
+        local _call32 = Instance.new('TextLabel')
+
+        _call32.Name = 'Title'
+        _call32.Size = UDim2.new(1, 0, 0, 20)
+        _call32.Position = UDim2.new(0, 0, 0, 10)
+        _call32.BackgroundTransparency = 1
+        _call32.TextColor3 = Color3.fromRGB(255, 255, 255)
+        _call32.Text = _14_vararg1
+        _call32.Font = Enum.Font.RobotoMono
+        _call32.TextSize = 18
+        _call32.Parent = _call20
+
+        local _call42 = Instance.new('ImageLabel')
+
+        _call42.Name = 'Icon'
+        _call42.Parent = _call20
+        _call42.BackgroundTransparency = 1
+        _call42.Position = UDim2.new(0, 5, 0, 0)
+        _call42.Size = UDim2.new(0, 45, 0, 45)
+        _call42.Image = 'rbxassetid://83564290292594'
+        _call42.ImageColor3 = Color3.fromRGB(255, 255, 255)
+
+        local _call50 = Instance.new('TextLabel')
+
+        _call50.Name = 'Status'
+        _call50.Size = UDim2.new(1, 0, 0, 20)
+        _call50.Position = UDim2.new(0, 0, 0, 35)
+        _call50.BackgroundTransparency = 1
+        _call50.TextColor3 = Color3.fromRGB(150, 150, 150)
+        _call50.Text = 'Initializing...'
+        _call50.Font = Enum.Font.RobotoMono
+        _call50.TextSize = 14
+        _call50.Parent = _call20
+
+        local _call60 = Instance.new('Frame')
+
+        _call60.Name = 'ProgressBar'
+        _call60.Size = UDim2.new(0.8, 0, 0, 15)
+        _call60.Position = UDim2.new(0.1, 0, 0.65, 0)
+        _call60.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        _call60.BorderSizePixel = 0
+        _call60.Parent = _call20
+
+        local _call68 = Instance.new('UIStroke')
+
+        _call68.Parent = _call60
+        _call68.Color = Color3.fromRGB(40, 40, 40)
+        _call68.Thickness = 1
+
+        local _call72 = Instance.new('Frame')
+
+        _call72.Name = 'Fill'
+        _call72.Size = UDim2.new(0, 0, 1, 0)
+        _call72.BackgroundColor3 = Color3.fromRGB(255, 182, 193)
+        _call72.BorderSizePixel = 0
+        _call72.Parent = _call60
+
+        return {
+            Show = function(...)
+                _call16.Enabled = true
+            end,
+            SetStatus = function(...)
+                local _78_vararg1, _78_vararg2 = ...
+
+                _call50.Text = _78_vararg2
+            end,
+            ScreenGui = _call16,
+            Destroy = function(...)
+                _call16:Destroy()
+            end,
+            Hide = function(...)
+                _call16.Enabled = false
+            end,
+            SetProgress = function(...)
+                local _83_vararg1, _83_vararg2 = ...
+
+                _call72:TweenSize(UDim2.new(_83_vararg2, 0, 1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true)
+            end,
+        }
+    end,
+}
